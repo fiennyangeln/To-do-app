@@ -1,4 +1,5 @@
 module.exports = function(app){
-  var tasks = require('../controllers/tasks.server.controllers');
-  app.get('/create',tasks.create);
+  var users = require('../controllers/tasks.server.controllers');
+  app.get('/create',users.create);
+  app.get('/list',users.list);
 }
