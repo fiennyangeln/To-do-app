@@ -1,8 +1,17 @@
-var express=require('express');
+var express=require('express'),
+  bodyParser = require('body-parser'),
+  methodOverride = require('method-override');
+
 var db = 'mongodb://localhost/mean-book';
 
 module.exports = function(){
   var app =express();
+
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
+  app.use(bodyParser.json());
+  app.use(methodOverride());
 
   app.set('views', './app/views');
   app.set('view engine', 'ejs');

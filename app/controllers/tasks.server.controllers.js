@@ -30,7 +30,7 @@ module.exports.read = function (req,res,next){
 };
 
 module.exports.create = function (req, res, next){
-  var task = new Task(req.query);
+  var task = new Task(req.body);
   task.save(function(err){
     if (err){
       return res.status(400).send({message: getErrorMessage(err)});
