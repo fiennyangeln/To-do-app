@@ -8,11 +8,11 @@ module.exports = function(app){
   app.get('/listNotDone', tasks.listNotDone);
   app.get('/listDone', tasks.listDone);
 
-  app.route('/tasks')
+  app.route('/api/tasks')
   .get(tasks.list)
   .post(tasks.create);
 
-  app.route('/tasks/:taskId')
+  app.route('/api/tasks/:taskId')
   .get(tasks.getOneById, tasks.read)
   .put(tasks.update)
   .delete(tasks.remove);

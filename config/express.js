@@ -13,9 +13,9 @@ module.exports = function(){
   }));
   app.use(bodyParser.json());
   app.use(methodOverride());
-  app.use(express.static(path.join(__dirname, '../todo-client/dist')));
+  app.use(express.static(path.join(__dirname, '../todo-client/dist'))); //TODO: WHAT IS THIS FOR
   console.log(path.join(__dirname, 'dist'));
-  app.use('', express.static(path.join(__dirname, '../todo-client/dist')));
+  app.use('/tasks', express.static(path.join(__dirname, '../todo-client/dist'))); //TODO: WHAT IS THIS FOR
   app.set('views', './app/views');
   app.set('view engine', 'ejs');
 

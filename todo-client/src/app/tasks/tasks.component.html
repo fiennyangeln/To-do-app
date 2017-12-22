@@ -1,0 +1,19 @@
+<div>
+  <label>Task name:
+    <input #taskName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(taskName.value); taskName.value=''">
+    add
+  </button>
+</div>
+<div *ngIf="tasks">
+<ul>
+  <li *ngFor="let task of tasks">
+    <a routerLink="/detail/{{task._id}}">
+      <p class="{{task.status}}">{{task.name}}-{{task.status}}</p>
+    </a>
+    <button type="button" (click)="delete(task)">x</button>
+  </li>
+</ul>
+</div>
