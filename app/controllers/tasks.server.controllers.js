@@ -43,7 +43,7 @@ module.exports.create = function (req, res, next){
 };
 
 module.exports.list = function (req,res,next){
-  var query=Task.find().sort('status');
+  var query=Task.find().select('name status').sort('status');
   query.exec(function(err,tasks){
     if (err){
       return res.status(400).send({message: getErrorMessage(err)});
@@ -55,7 +55,7 @@ module.exports.list = function (req,res,next){
 };
 
 module.exports.listNotDone = function (req,res,next){
-  var query = Task.find({'status':false}).sort('name');
+  var query = Task.find({'status':false}).select('name status').sort('name');
   query.exec(function(err,tasks){
     if (err){
       return res.status(400).send({message: getErrorMessage(err)});
@@ -67,7 +67,7 @@ module.exports.listNotDone = function (req,res,next){
 };
 
 module.exports.listDone = function (req,res,next){
-  var query = Task.find({'status': true}).sort('name');
+  var query = Task.find({'status': true}).select('name status').sort('name');
   query.exec(function(err,tasks){
     if (err){
       return res.status(400).send({message: getErrorMessage(err)});

@@ -8,8 +8,14 @@ module.exports = function(app){
   app.get('/listNotDone', tasks.listNotDone);
   app.get('/listDone', tasks.listDone);
 
-  app.route('/tasks').get(tasks.list).post(tasks.create);
-  app.route('/tasks/:taskId').get(tasks.getOneById, tasks.read).put(tasks.update).delete(tasks.remove);
+  app.route('/tasks')
+  .get(tasks.list)
+  .post(tasks.create);
+
+  app.route('/tasks/:taskId')
+  .get(tasks.getOneById, tasks.read)
+  .put(tasks.update)
+  .delete(tasks.remove);
 
   app.param('taskId',tasks.getOneById);
 
