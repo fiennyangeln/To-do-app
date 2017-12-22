@@ -1,0 +1,20 @@
+<div *ngIf="task">
+
+  <h2>{{task.name | uppercase}} Details</h2>
+  <!--<div><span>id:</span>{{hero.id}}</div>-->
+  <div>
+    <label>name:
+      <input [(ngModel)]="task.name" placeholder="name"/>
+    </label>
+    <label>status:
+      <div *ngFor="let status of statuses">
+        <label>
+          <input type="radio" name="status" [(ngModel)]="task.status" [value]="status.value"/>
+          {{status.display}}
+        </label>
+      </div>
+    </label>
+  </div>
+</div>
+<button (click)="save()">save</button>
+<button (click)="goBack()">go back</button>
