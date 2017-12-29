@@ -1,4 +1,9 @@
 .true {
   background-color: #CFD8DC !important;
   color: blue;
+  text-decoration: line-through;
+}
+.false {
+  background-color: #F5F5DC !important;
+  color: blue;
 }

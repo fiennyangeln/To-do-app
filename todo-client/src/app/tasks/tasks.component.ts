@@ -35,5 +35,9 @@ export class TasksComponent implements OnInit {
       this.tasks.push(task);
     });
   }
+  filter(status : string):void{
+    this.tasksService.getTasksByStatus(status)
+    .subscribe(tasks => this.tasks = tasks);
+  }
 
 }

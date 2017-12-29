@@ -11,7 +11,7 @@ const httpOptions = {
 
 @Injectable()
 export class TasksService {
-  taskUrl = '/api/tasks';
+  taskUrl = 'http://localhost:3000/api/tasks';
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {
@@ -56,6 +56,13 @@ export class TasksService {
   addTask(task: Task) : Observable<Task>{
     return this.http.post<Task>(this.taskUrl,task,httpOptions).pipe(
       catchError(this.handleError<Task>('addTask'))
+    );
+  }
+
+  getTasksByStatus(status : string) : Observable<Task[]>{
+    const url = `${this.taskUrl}/filter/${status}`;
+    return this.http.get<Task[]>(url).pipe(
+      catchError(this.handleError<Task[]>('getBystatus'))
     );
   }
 }
