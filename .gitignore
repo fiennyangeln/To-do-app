@@ -2,3 +2,9 @@ node_modules/
 /public/lib
 try.js
 /client
+e2e/*.js
+e2e/*.map
+
+dist
+tmp
+out-tsc
