@@ -7,6 +7,6 @@ var config = require('./express'),
 module.exports = function(){
   var db = mongoose.connect(uri);
 
-  require ('../app/models/tasks.server.models')
+  require ('../models/tasks.server.models')
   return db;
 }
